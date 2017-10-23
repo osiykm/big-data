@@ -35,6 +35,7 @@ public class BigDataApplication {
 		ConfigurableApplicationContext context = SpringApplication.run(BigDataApplication.class, args);
 
 		UsersDAO usersDAO = context.getBean(UsersDAO.class);
+		usersDAO.deleteAll();
 		usersDAO.saveAll(loadJson());
 		log.info(String.valueOf(usersDAO.count()));
 		usersDAO.saveAll(loadXML());

@@ -5,27 +5,21 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
 import org.springframework.hateoas.Identifiable;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 /***
  * @author osiykm
  * created 22.10.2017 23:21
  */
-@Entity
-@Table(name = "users")
+
 @Data
 @AllArgsConstructor
 @Builder
 @NoArgsConstructor
-class User implements Identifiable<Long>{
+class User implements Identifiable<String> {
     @Id
-    @GeneratedValue
-    private Long id;
+    private String id;
 
     @JsonProperty(value = "first_name")
     private String firstName;
